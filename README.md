@@ -234,3 +234,15 @@ export interface UserFromDatabase {
 - os testes também podem ajudar a aencontrar gargalos de performance , então sempre que possivel é interessante faze-los
 
  
+  ### Observação
+ -  O desafio tema a regra: A verificação de inatividade ocorre antes de qualquer outra regra.
+```typescript 
+
+const isUserPayer = (user: UserFromDatabase) => {
+  return isUserEnabled(user) && isUserPayerByRole(user);
+};
+```
+
+- No JavaScript, quando se utiliza o operador lógico && (E lógico), a segunda cláusula é avaliada apenas se a primeira for verdadeira. Isso ocorre porque o operador && realiza uma avaliação de curto-circuito (short-circuit evaluation)
+- Ou seja mesmo que não explicitamente esteja seguindo essa validação do desafio na forma mais classica com dois ifs
+- - Eu acredito que isso da um resuldado de um código mais limpo e a validação de atividade do usuário ocorre sim antes mesmo de chamar a função de checar se é um apagador pelo campo role
