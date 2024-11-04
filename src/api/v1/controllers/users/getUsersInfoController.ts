@@ -34,6 +34,7 @@ const getUserInfoController = async (
         message: "A URL da API de usuários não foi definida",
       });
     }
+
     if (response.status !== HttpStatusCode.OK || !response.data) {
       Logger.info("The USERS_API_URL is : " + process.env.USERS_API_URL);
       Logger.groupEnd();
