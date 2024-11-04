@@ -23,7 +23,9 @@ docker-compose up
 Ou com o pacote NPM 
 
 ```bash
-docker-compose up
+npm install -g json-server
+cd config
+json-server --watch db.json
 ```
 
  - Para rodar a aplicação em ambiente de desenvolvimento
