@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "dist",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@middlewares/*": ["api/v1/middlewares/*"],
+      "@helpers/*": ["api/v1/helpers/*"],
+      "@routes/*": ["api/v1/routes/*"],
+      "@utils/*": ["api/v1/utils/*"],
+      "@server/*": ["api/v1/server.ts*"],
+      "@common/*": ["api/v1/common/*"],
+      "@types/*": ["api/v1/types/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "test/config.tsig.ts"],
+  "exclude": ["node_modules", "src/**/*.test.ts"]
+}
