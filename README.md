@@ -7,7 +7,7 @@
 ```bash
    npm install
 ```
-- Configure as variáveis de ambiente:
+- Configure as variáveis de ambiente (cire um arquivo .env no diretório raiz e adicione as variáveis):
 ```typescript
 NODE_ENV=development
 PORT=3000
