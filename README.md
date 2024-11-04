@@ -16,7 +16,7 @@ USERS_API_URL=http://localhost:8080/users
 
  ## Execução
 
- - Rodar a API mock com o Docker (recomnedado):
+ - Rodar a SaaS Mock da Niuco com o Docker (recomnedado):
 ```bash
 docker-compose up
 ```
@@ -36,7 +36,7 @@ json-server --watch db.json
 ```
  > OBS:O CI/CD foi integrado utilizando o Github Actions e foram demonstados funcnionando no fim do terceiro vídeo
 ## Documentação 
-- Basta acessar a aplicação no [localhost](http://localhost:3000/docs/) pode ser no browser , mas o container que contem os dados do usuário e  aaplciação tem que estar "rodando"
+- Basta acessar a aplicação no [localhost](http://localhost:3000/docs/) pode ser no browser , mas a SaaS Mock da Niucoo e  aaplciação tem que estar "rodando"
  ## Decisões Técnicas
  - A tentativa principal foi amnter uma arquitura e códigos limpos para garantir a escalabilidade futura.
  - Separação do Script src/app.ts e src/api/v1/server.ts
