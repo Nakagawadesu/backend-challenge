@@ -60,7 +60,7 @@ const getUserInfoController = async (
       return filteredUser;
     });
 
-    Logger.info("Users formated", formatedUsers);
+    Logger.success("Users formated", JSON.stringify(formatedUsers));
 
     Logger.groupEnd();
     return ResponseAssembler.assemble(req, next, {
@@ -69,6 +69,7 @@ const getUserInfoController = async (
       payload: formatedUsers,
     });
   } catch (error) {
+    Logger.error("Error while trying to get users", JSON.stringify(error));
     if (JSON.stringify(error).includes("ECONNREFUSED")) {
       Logger.error("The USERS_API_URL is not reachable");
       Logger.groupEnd();
