@@ -69,6 +69,14 @@ const getUserInfoController = async (
       payload: formatedUsers,
     });
   } catch (error) {
+    if (JSON.stringify(error).includes("ECONNREFUSED")) {
+      Logger.error("The USERS_API_URL is not reachable");
+      Logger.groupEnd();
+      return ResponseAssembler.assemble(req, next, {
+        status: HttpStatusCode.INTERNAL_SERVER_ERROR,
+        message: "A API de usuários não está acessível",
+      });
+    }
     Logger.groupEnd();
     return ResponseAssembler.assemble(req, next, {
       status: HttpStatusCode.INTERNAL_SERVER_ERROR,

@@ -2,6 +2,9 @@ import express from "express";
 import Logger from "./helpers/Logger";
 import routes from "@routes/index";
 import ResponseHandler from "@middlewares/Responsehandler";
+import swaggerJsDoc from "swagger-jsdoc";
+import swaggerUi from "swagger-ui-express";
+import swaggerOptions from "./swagger/swaggerOptions";
 Logger.groupEnd();
 Logger.group("Server");
 
@@ -13,6 +16,8 @@ if (process.env.NODE_ENV === "development") {
 }
 
 const server = express();
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+server.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 server.use(express.json());
 server.use("/api/v1", routes);
