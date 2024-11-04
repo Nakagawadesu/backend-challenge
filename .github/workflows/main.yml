@@ -24,7 +24,7 @@ jobs:
           --health-interval=5s 
           --health-timeout=3s 
           --health-retries=5
-        command: json-server --watch /config/db.json --port 8080  # Specify command
+        entrypoint: ["json-server", "--watch", "/config/db.json", "--port", "8080"]  # Use entrypoint
 
     steps:
       - name: Checkout code
@@ -47,4 +47,5 @@ jobs:
 
       - name: Run tests
         run: npm test
+
 
