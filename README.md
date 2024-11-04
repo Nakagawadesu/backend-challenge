@@ -16,7 +16,7 @@ USERS_API_URL=http://localhost:8080/users
 
  ## Execução
 
- - Rodar a API mock com o Docker :
+ - Rodar a API mock com o Docker (recomnedado):
 ```bash
 docker-compose up
 ```
