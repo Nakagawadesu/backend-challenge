@@ -18,12 +18,13 @@ jobs:
         ports:
           - 8080:8080
         volumes:
-          - ./config:/config
+          - ./config/db.json:/config/db.json  # Adjust to ensure db.json is correctly mapped
         options: >-
           --health-cmd="curl --fail http://localhost:8080" 
           --health-interval=5s 
           --health-timeout=3s 
           --health-retries=5
+        command: json-server --watch /config/db.json --port 8080  # Specify command
 
     steps:
       - name: Checkout code
@@ -46,3 +47,4 @@ jobs:
 
       - name: Run tests
         run: npm test
+
